@@ -1,0 +1,930 @@
+<html>
+<head>
+    <title>Mongolian, Manchu script typer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript">
+
+
+var conversion = {
+            "a": "\u1820",
+            "e": "\u1821",
+            "i": "\u1822",
+            "I": "\u1822",
+            "o": "\u1823",
+            "u": "\u1824",
+            "w": "\u1825",
+            "v": "\u1826",
+            "E": "\u1827",
+            "n": "\u1828",
+            "ng": "\u1829",
+            "b": "\u182A",
+            "p": "\u182B",
+            "h": "\u182C",
+            "g": "\u182D",
+            "m": "\u182E",
+            "l": "\u182F",
+            "s": "\u1830",
+            "x": "\u1831",
+            "t": "\u1832",
+            "d": "\u1833",
+            "q": "\u1834",
+            "j": "\u1835",
+            "y": "\u1836",
+            "r": "\u1837",
+            "W": "\u1838",
+            "f": "\u1839",
+            "k": "\u183A",
+            "K": "\u183B",
+            "c": "\u183C",
+            "z": "\u183D",
+            "H": "\u183E",
+            "R": "\u183F",
+            "L": "\u1840",
+            "Z": "\u1841",
+            "C": "\u1842",
+
+            "0": "\u1810",
+            "1": "\u1811",
+            "2": "\u1812",
+            "3": "\u1813",
+            "4": "\u1814",
+            "5": "\u1815",
+            "6": "\u1816",
+            "7": "\u1817",
+            "8": "\u1818",
+            "9": "\u1819",
+
+            "..": "\u1801",
+            ":": "\u1804",
+            ",": "\u1802",
+            ".": "\u1803",
+            "-": "\u180A",
+            "<": "\u3008",
+            ">": "\u3009",
+            "{": "\u300A",
+            "}": "\u300B",
+            "[": "\u3014",
+            "]": "\u3015",
+            "!": "\uFF01",
+            "?": "\uFF1F",
+            "`": "&#8203;",
+};
+
+
+var conversion2 = {
+            "a": "\u1820",
+            "e": "\u185D",
+            "i": "\u1873",
+            " I": "\u202f\u1873",
+            "o": "\u1823",
+            "u": "\u1860",
+            "v": "\u1861",
+            "ū": "\u1861",
+            "i'": "\u185F",
+            "n": "\u1828",
+            "ng": "\u1829",
+            "k": "\u1874",
+            "g": "\u1864",
+            "h": "\u1865",
+            "b": "\u182A",
+            "p": "\u1866",
+            "s": "\u1830",
+            "š": "\u1867",
+            "x": "\u1867",
+            "t": "\u1868",
+            "d": "\u1869",
+            "l": "\u182F",
+            "m": "\u182E",
+            "c": "\u1834",
+            "j": "\u1835",
+            "y": "\u1836",
+            "r": "\u1875",
+            "f": "\u1876",
+            "w": "\u1838",
+            "k'": "\u183A",
+            "g'": "\u186C",
+            "h'": "\u186D",
+            "ts'": "\u186E",
+            "ts": "\u186e\u185f",
+            "dz": "\u186F",
+            "ž": "\u1870",
+            "z": "\u1870",
+            "sy":"\u1830\u185f",
+            "c'": "\u1871",
+            "c'y": "\u1871\u1873",
+            "jy": "\u1877",
+            "0": "\u1810",
+            "1": "\u1811",
+            "2": "\u1812",
+            "3": "\u1813",
+            "4": "\u1814",
+            "5": "\u1815",
+            "6": "\u1816",
+            "7": "\u1817",
+            "8": "\u1818",
+            "9": "\u1819",
+            "-": "\u180A",
+            ",": "\u1808",
+            ".": "\u1809",
+            "`": "​&#8203;", 
+            "q":"[invalid]",
+        };
+
+var conversion3 = {
+"I":"i",
+"v":"ū",
+"x":"š",
+"z":"ž",
+"dz":"dz",
+};
+
+ var maxLength = Object.keys(conversion)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert (text) {
+    var converted = "";
+    var cur = 0;
+    while (cur < text.length) {
+      var testedPhoneme;
+      var symbol = undefined;
+      for (var length = maxLength; length > 0; length --) {
+        testedPhoneme = text.substr(cur, length);
+        if (conversion[testedPhoneme]) {
+          symbol = conversion[testedPhoneme];
+          break; // stop the loop
+        }
+      }
+      if (symbol) {
+        converted += symbol;
+        cur += testedPhoneme.length;
+      }
+      else {
+        converted += text[cur]
+        cur++;
+      }
+    }
+    return converted
+  }
+
+ var maxLength2 = Object.keys(conversion2)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert2 (text) {
+    var converted2 = "";
+    var cur2 = 0;
+    while (cur2 < text.length) {
+      var testedPhoneme2;
+      var symbol2 = undefined;
+      for (var length = maxLength2; length > 0; length --) {
+        testedPhoneme2 = text.substr(cur2, length);
+        if (conversion2[testedPhoneme2]) {
+          symbol2 = conversion2[testedPhoneme2];
+          break; // stop the loop
+        }
+      }
+      if (symbol2) {
+        converted2 += symbol2;
+        cur2 += testedPhoneme2.length;
+      }
+      else {
+        converted2 += text[cur2]
+        cur2++;
+      }
+    }
+    return converted2
+  }
+
+ var maxLength3 = Object.keys(conversion3)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert3 (text) {
+    var converted3 = "";
+    var cur3 = 0;
+    while (cur3 < text.length) {
+      var testedPhoneme3;
+      var symbol3 = undefined;
+      for (var length = maxLength3; length > 0; length --) {
+        testedPhoneme3 = text.substr(cur3, length);
+        if (conversion3[testedPhoneme3]) {
+          symbol3 = conversion3[testedPhoneme3];
+          break; // stop the loop
+        }
+      }
+      if (symbol3) {
+        converted3 += symbol3;
+        cur3 += testedPhoneme3.length;
+      }
+      else {
+        converted3 += text[cur3]
+        cur3++;
+      }
+    }
+    return converted3
+  }
+
+  function onInputTextChange(txt) {
+    var outputTextareaElem = document.getElementById("output_textarea");
+    var div = document.createElement("div");
+    var outputHtmlEntities = convert(txt);
+    div.innerHTML = outputHtmlEntities;
+    outputTextareaElem.value = div.innerText;
+
+    var outputTextareaElem2 = document.getElementById("output_textarea2");
+    var div = document.createElement("div");
+    var outputHtmlEntities2 = convert2(txt);
+    div.innerHTML = outputHtmlEntities2;
+    outputTextareaElem2.value = div.innerText;
+
+    var outputTextareaElem3 = document.getElementById("output_textarea3");
+    var div = document.createElement("div");
+    var outputHtmlEntities3 = convert3(txt);
+    div.innerHTML = outputHtmlEntities3;
+    outputTextareaElem3.value = div.innerText;
+  }
+
+        function select() {
+          const input = document.getElementById('input_textarea');
+          input.focus();
+          input.select();
+        }   
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+ 
+    </script>
+    
+<style>
+@import url(https://victorlee.github.io/fonts/stylesheet.css);
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+}
+@media (max-width: 700px) {
+table {
+  border-collapse: collapse;
+  width: 97%;
+}
+}   
+
+td, th {
+  border: 1px solid #AAA;
+  text-align: center;
+  padding: 1px;
+}
+textarea {
+    font-size: 14pt;
+    font-family: 'Arial';
+    width: 96%;
+} 
+.note {
+  border: 1px solid #DDD;
+  width: 45%;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.convtab {
+overflow-y: scroll; 
+height: 200px;
+width: 250px;
+font-family: monospace, 'Mongolian Universal White';
+}
+textarea#output_textarea, textarea#output_textarea2 {
+font-size: 18pt;
+}
+textarea#output_textarea {
+    font-family: 'Mongolian Universal White';
+}
+textarea#output_textarea2 {
+    font-family: 'Mongolian Universal White';
+}
+</style>
+
+
+</head>
+<body>    
+
+<center style="padding: 5px 0"><h1 class="text-center">Mongolian, Manchu script typer</h1><br>
+<table>
+
+
+<!-- 111################################### -->
+<tr>
+<th>
+<button onclick="select('input_textarea')">Select all</button>
+<button onclick="document.getElementById('input_textarea').value = ''">Clear</button>
+</th>
+<th>
+<button onclick="copytext()">Copy text</button>
+<button onclick="wiktionary()">Wiktionary</button>
+<script>
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+        function wiktionary() {
+        window.open("https://en.wiktionary.org/wiki/" + document.getElementById('output_textarea').value + "#", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=300,width=600,height=600");
+}
+</script>
+</th>
+<th style="width: 260px;">Mongolian conversion</th>
+</tr>
+
+
+<tr>
+<td>
+<textarea
+id="input_textarea"
+autofocus=""
+placeholder="Input"
+rows="9"
+oninput="onInputTextChange(this.value)"></textarea>  
+</td>
+<td>
+<textarea rows="7" placeholder="Output Mongolian" id="output_textarea"></textarea>    
+</td>
+<td>
+
+<center>
+<div class="convtab">
+
+<table style="font-size: 18px;">
+
+<tr>
+<th>Latin</th>
+<th>Mongolian</th>
+<th>Cyrillic</th>
+</tr>
+
+
+<tr>
+<td>a</td>
+<td>\u1820 ᠠ</td>
+<td>а</td>
+</tr>
+<tr>
+<td>e</td>
+<td>\u1821 ᠡ</td>
+<td>э</td>
+</tr>
+<tr>
+<td>i</td>
+<td>\u1822 ᠢ</td>
+<td>и</td>
+</tr>
+<tr>
+<td>o</td>
+<td>\u1823 ᠣ</td>
+<td>о</td>
+</tr>
+<tr>
+<td>u</td>
+<td>\u1824 ᠤ</td>
+<td>у</td>
+</tr>
+<tr>
+<td>w</td>
+<td>\u1825 ᠥ</td>
+<td>ө</td>
+</tr>
+<tr>
+<td>v</td>
+<td>\u1826 ᠦ</td>
+<td>ү</td>
+</tr>
+<tr>
+<td>E</td>
+<td>\u1827 ᠧ</td>
+<td>е</td>
+</tr>
+<tr>
+<td>n</td>
+<td>\u1828 ᠨ</td>
+<td>н</td>
+</tr>
+<tr>
+<td>ng</td>
+<td>\u1829 ᠩ</td>
+<td>нг</td>
+</tr>
+<tr>
+<td>b</td>
+<td>\u182A ᠪ</td>
+<td>б</td>
+</tr>
+<tr>
+<td>p</td>
+<td>\u182B ᠫ</td>
+<td>п</td>
+</tr>
+<tr>
+<td>h</td>
+<td>\u182C ᠬ</td>
+<td>х</td>
+</tr>
+<tr>
+<td>g</td>
+<td>\u182D ᠭ</td>
+<td>х</td>
+</tr>
+<tr>
+<td>m</td>
+<td>\u182E ᠮ</td>
+<td>м</td>
+</tr>
+<tr>
+<td>l</td>
+<td>\u182F ᠯ</td>
+<td>л</td>
+</tr>
+<tr>
+<td>s</td>
+<td>\u1830 ᠰ</td>
+<td>с</td>
+</tr>
+<tr>
+<td>x</td>
+<td>\u1831 ᠱ</td>
+<td>ш</td>
+</tr>
+<tr>
+<td>t</td>
+<td>\u1832 ᠲ</td>
+<td>т</td>
+</tr>
+<tr>
+<td>d</td>
+<td>\u1833 ᠳ</td>
+<td>д</td>
+</tr>
+<tr>
+<td>q</td>
+<td>\u1834 ᠴ</td>
+<td>ч</td>
+</tr>
+<tr>
+<td>j</td>
+<td>\u1835 ᠵ</td>
+<td>ж</td>
+</tr>
+<tr>
+<td>y</td>
+<td>\u1836 ᠶ</td>
+<td>й</td>
+</tr>
+<tr>
+<td>r</td>
+<td>\u1837 ᠷ</td>
+<td>р</td>
+</tr>
+<tr>
+<td>W</td>
+<td>\u1838 ᠸ</td>
+<td>в</td>
+</tr>
+<tr>
+<td>f</td>
+<td>\u1839 ᠹ</td>
+<td>ф</td>
+</tr>
+<tr>
+<td>k</td>
+<td>\u183A ᠺ</td>
+<td>к</td>
+</tr>
+<tr>
+<td>K</td>
+<td>\u183B ᠻ</td>
+<td>к</td>
+</tr>
+<tr>
+<td>c</td>
+<td>\u183C ᠼ</td>
+<td>ц</td>
+</tr>
+<tr>
+<td>z</td>
+<td>\u183D ᠽ</td>
+<td>з</td>
+</tr>
+<tr>
+<td>H</td>
+<td>\u183E ᠾ</td>
+<td>х</td>
+</tr>
+<tr>
+<td>R</td>
+<td>\u183F ᠿ</td>
+<td>ж</td>
+</tr>
+<tr>
+<td>L</td>
+<td>\u1840 ᡀ</td>
+<td>лх</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>\u1841 ᡁ</td>
+<td>з</td>
+</tr>
+<tr>
+<td>C</td>
+<td>\u1842 ᡂ</td>
+<td>ч</td>
+</tr>
+<tr>
+<td>0</td>
+<td>\u1810 ᠐</td>
+</tr>
+<tr>
+<td>1</td>
+<td>\u1811 ᠑</td>
+</tr>
+<tr>
+<td>2</td>
+<td>\u1812 ᠒</td>
+</tr>
+<tr>
+<td>3</td>
+<td>\u1813 ᠓</td>
+</tr>
+<tr>
+<td>4</td>
+<td>\u1814 ᠔</td>
+</tr>
+<tr>
+<td>5</td>
+<td>\u1815 ᠕</td>
+</tr>
+<tr>
+<td>6</td>
+<td>\u1816 ᠖</td>
+</tr>
+<tr>
+<td>7</td>
+<td>\u1817 ᠗</td>
+</tr>
+<tr>
+<td>8</td>
+<td>\u1818 ᠘</td>
+</tr>
+<tr>
+<td>9</td>
+<td>\u1819 ᠙</td>
+</tr>
+<tr>
+<td>..</td>
+<td>\u1801 ᠁</td>
+</tr>
+<tr>
+<td>:</td>
+<td>\u1804 ᠄</td>
+</tr>
+<tr>
+<td>,</td>
+<td>\u1808 ᠈</td>
+</tr>
+<tr>
+<td>.</td>
+<td>\u1809 ᠉</td>
+</tr>
+<tr>
+<td>-</td>
+<td>\u180A ᠊</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>\u3008 〈</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>\u3009 〉</td>
+</tr>
+<tr>
+<td>{</td>
+<td>\u300A 《</td>
+</tr>
+<tr>
+<td>}</td>
+<td>\u300B 》</td>
+</tr>
+<tr>
+<td>[</td>
+<td>\u3014 〔</td>
+</tr>
+<tr>
+<td>]</td>
+<td>\u3015 〕</td>
+</tr>
+<tr>
+<td>!</td>
+<td>\uFF01 ！</td>
+</tr>
+<tr>
+<td>?</td>
+<td>\uFF1F ？</td>
+</tr>
+<tr>
+<td>`</td>
+<td>character breaker</td>
+</tr>
+
+</table>
+
+</div>
+</center>
+
+</td>
+</tr>
+
+<!-- 222################################### -->
+<tr>
+<th>    
+<button onclick="copytext3()">Copy text</button>
+<button onclick="google()">Google</button>
+<script>
+        function copytext3() {
+          var copyText = document.getElementById("output_textarea3");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+        function google() {
+        window.open("https://www.google.com/search?q=" + document.getElementById('output_textarea3').value, "_blank");
+}
+</script>
+
+</th>
+<th>
+<button onclick="copytext2()">Copy text</button>
+<button onclick="wiktionary2()">Wiktionary</button>
+<script>
+        function copytext2() {
+          var copyText = document.getElementById("output_textarea2");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+        function wiktionary2() {
+        window.open("https://en.wiktionary.org/wiki/" + document.getElementById('output_textarea2').value + "#", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=300,width=600,height=600");
+}
+</script>
+</th>
+<th style="width: 260px;">Manchu conversion</th>
+</tr>
+
+
+<tr>
+<td>
+<textarea
+placeholder="Manchu - Möllendorff" id="output_textarea3"
+rows="9"></textarea>    
+</td>
+<td>
+<textarea rows="7" placeholder="Output Manchu" id="output_textarea2"></textarea>    
+</td>
+<td>
+
+<center>
+<div class="convtab">
+<table style="font-size: 18px;">
+
+<tr>
+<th>Latin</th>
+<th>Manchu</th>
+</tr>
+
+
+<tr>
+<td>a</td>
+<td>\u1820 ᠠ</td>
+</tr>
+<tr>
+<td>e</td>
+<td>\u185D ᡝ</td>
+</tr>
+<tr>
+<td>i</td>
+<td>\u1873 ᡳ</td>
+</tr>
+<tr>
+<td>space + I</td>
+<td>\u202f\u1873 <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAmCAYAAAAxxTAbAAADJUlEQVRYCb2Wy0t6QRTH5x9w086Vq5D+ABFaFUQGhRHUMqg2gos2WTsJDEKEpGWLkKLHslUbHwhBID0ggtbqovAVIiIq9Dg/vjdmuHPvXL3W5XdB5t5xzvczZ86ZmcPoPzzMDqPVatH9/T1dXFxQPB6nq6srenp6om63a8ecLCFfX1+Uz+dpYWGBGGPKn8vlovX1dSqVSgNhSkilUqGNjQ2lsAo4NjZGJycn9PHxoYSZIOVymebn520D9FAspQokQarVKi0uLloCvF4vzc7OElq9OH/H8iFu39/fkkcCghlgJtyAtxBMpVLUbDaFIUQQh0gkQhDmY9FOTEzQ8/OzGIsXAXl4eCCPxyMZrKys0Ovrq2Sg/0BynJ2dmUBbW1vU7/fFUA2Cjs3NTQmAuCABhj2qFXC73XR3dydMNcjLy4vmJncbS5BOp8WgYS/wdnp6WppkNBqlz89PzVSDHB8fSwPW1tao0+kM05b+N2pMTk4SMhUPw64NhUIS5Pz8XBKw81EsFsnv90s6mUzmB/L29kZTU1Piz/HxcVN22IGo4rq3t6elM0O6QZjHIxAI0Pv7ux1d05jT01OhA73V1VVqt9vEbm5upD+wdHYPPiOlUChI6czjwrD+3Au0u7u7ph1rFLP6RqAhzPWQyo+Pj2SCxGIxK42h/bgSlpeXBQQwBJ9BlJPR/gVilamOQuCqcdL7+/vEjo6OHPOEQ3AGzszM0Pb2Nl1fXzsbE6ugMS0wuus1HA5Tr9ezGv+rfoYUQ6rx4CM7kCVOPsyY23wDOQrBtsf2557gmL+9vXWS8XMzJpNJAQHs4ODg17teNTvtPsHM9Xf10tKSdKerDEfp0yCNRoPm5uaENwDmcrlRdAaO1SCoPrBEPC5o/3IaG4kaBJ24+PWpbCwGjIajfAuI6nBzyhsBwcwQB30C4H2UqsXKOwmCCgWVij42wWCQarWalb2tfgkCC1zH+tgAmEgkRA1lS9UwyARB1YEyU+8Nju6/nAImCCaBCgaFsx60s7Mj1beGyQ78VEKwbw4PDzWIz+ejbDZLKK5/+yghEKvX63R5eTlyuaqayD/RGv+J/8uXpQAAAABJRU5ErkJggg=='/ height=14px ></td>
+</tr>
+<tr>
+<td>o</td>
+<td>\u1823 ᠣ</td>
+</tr>
+<tr>
+<td>u</td>
+<td>\u1860 ᡠ</td>
+</tr>
+<tr>
+<td>v, ū</td>
+<td>\u1861 ᡡ</td>
+</tr>
+<tr>
+<td>i'</td>
+<td>\u185F ᡟ</td>
+</tr>
+<tr>
+<td>n</td>
+<td>\u1828 ᠨ</td>
+</tr>
+<tr>
+<td>ng</td>
+<td>\u1829 ᠩ</td>
+</tr>
+<tr>
+<td>k</td>
+<td>\u1874 ᡴ</td>
+</tr>
+<tr>
+<td>g</td>
+<td>\u1864 ᡤ</td>
+</tr>
+<tr>
+<td>h</td>
+<td>\u1865 ᡥ</td>
+</tr>
+<tr>
+<td>b</td>
+<td>\u182A ᠪ</td>
+</tr>
+<tr>
+<td>p</td>
+<td>\u1866 ᡦ</td>
+</tr>
+<tr>
+<td>s</td>
+<td>\u1830 ᠰ</td>
+</tr>
+<tr>
+<td>š, x</td>
+<td>\u1867 ᡧ</td>
+</tr>
+<tr>
+<td>t</td>
+<td>\u1868 ᡨ</td>
+</tr>
+<tr>
+<td>d</td>
+<td>\u1869 ᡩ</td>
+</tr>
+<tr>
+<td>l</td>
+<td>\u182F ᠯ</td>
+</tr>
+<tr>
+<td>m</td>
+<td>\u182E ᠮ</td>
+</tr>
+<tr>
+<td>c</td>
+<td>\u1834 ᠴ</td>
+</tr>
+<tr>
+<td>j</td>
+<td>\u1835 ᠵ</td>
+</tr>
+<tr>
+<td>y</td>
+<td>\u1836 ᠶ</td>
+</tr>
+<tr>
+<td>r</td>
+<td>\u1875 ᡵ</td>
+</tr>
+<tr>
+<td>f</td>
+<td>\u1876 ᡶ</td>
+</tr>
+<tr>
+<td>w</td>
+<td>\u1838 ᠸ</td>
+</tr>
+<tr>
+<td>k'</td>
+<td>\u183A ᠺ</td>
+</tr>
+<tr>
+<td>g'</td>
+<td>\u186C ᡬ</td>
+</tr>
+<tr>
+<td>h'</td>
+<td>\u186D ᡭ</td>
+</tr>
+<tr>
+<td>ts'</td>
+<td>\u186E ᡮ</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>\u186E\u185f ᡮᡟ</td>
+</tr>
+<tr>
+<td>dz</td>
+<td>\u186F ᡯ</td>
+</tr>
+<tr>
+<td>ž, z</td>
+<td>\u1870 ᡰ</td>
+</tr>
+<tr>
+<td>sy</td>
+<td>\u1830\u185f ᠰᡟ</td>
+</tr>
+<tr>
+<td>c'</td>
+<td>\u1871 ᡱ</td>
+</tr>
+<tr>
+<td>jy</td>
+<td>\u1877 ᡷ</td>
+</tr>
+<tr>
+<td>0</td>
+<td>\u1810 ᠐</td>
+</tr>
+<tr>
+<td>1</td>
+<td>\u1811 ᠑</td>
+</tr>
+<tr>
+<td>2</td>
+<td>\u1812 ᠒</td>
+</tr>
+<tr>
+<td>3</td>
+<td>\u1813 ᠓</td>
+</tr>
+<tr>
+<td>4</td>
+<td>\u1814 ᠔</td>
+</tr>
+<tr>
+<td>5</td>
+<td>\u1815 ᠕</td>
+</tr>
+<tr>
+<td>6</td>
+<td>\u1816 ᠖</td>
+</tr>
+<tr>
+<td>7</td>
+<td>\u1817 ᠗</td>
+</tr>
+<tr>
+<td>8</td>
+<td>\u1818 ᠘</td>
+</tr>
+<tr>
+<td>9</td>
+<td>\u1819 ᠙</td>
+</tr>
+<tr>
+<td>-</td>
+<td>\u180A ᠊</td>
+</tr>
+<tr>
+<td>,</td>
+<td>\u1802 ᠈</td>
+</tr>
+<tr>
+<td>.</td>
+<td>\u1803 ᠉</td>
+</tr>
+<tr>
+<td>`</td>
+<td>Chracter breaker</td>
+</tr>
+
+</table>
+
+</div>
+</center>
+
+</td>
+</tr>
+
+</table>
+</center>
+</body>
+</html>
