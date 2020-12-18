@@ -8,70 +8,73 @@
 
 
 var conversion = {
-            "a": "\u1820",
-            "e": "\u1821",
-            "i": "\u1822",
-            "I": "\u1822",
-            "w": "\u1823",
-            "v": "\u1824",
-            "o": "\u1825",
-            "u": "\u1826",
-            "E": "\u1827",
-            "A": "\u180e",
-            "n": "\u1828",
-            "ng": "\u1829",
-            "b": "\u182A",
-            "p": "\u182B",
-            "h": "\u182C",
-            "g": "\u182D",
-            "m": "\u182E",
-            "l": "\u182F",
-            "s": "\u1830",
-            "x": "\u1831",
-            "t": "\u1832",
-            "d": "\u1833",
-            "q": "\u1834",
-            "j": "\u1835",
-            "y": "\u1836",
-            "r": "\u1837",
-            "W": "\u1838",
-            "f": "\u1839",
-            "k": "\u183A",
-            "K": "\u183B",
-            "c": "\u183C",
-            "z": "\u183D",
-            "H": "\u183E",
-            "R": "\u183F",
-            "L": "\u1840",
-            "Z": "\u1841",
-            "C": "\u1842",
-    "V":"\180e",
-    "N":"\202f",
-            "0": "\u1810",
-            "1": "\u1811",
-            "2": "\u1812",
-            "3": "\u1813",
-            "4": "\u1814",
-            "5": "\u1815",
-            "6": "\u1816",
-            "7": "\u1817",
-            "8": "\u1818",
-            "9": "\u1819",
+"q":"ᠣ",
+"Q":"ᡂ",
+"w":"ᠸ",
+"e":"ᠡ",
+"E":"ᠧ",
+"r":"ᠷ",
+"R":"ᠿ",
+"t":"ᠲ",
+"y":"ᠶ",
+"u":"ᠦ",
+"i":"ᠢ",
+"o":"ᠥ",
+"p":"ᠫ",
 
-            "..": "\u1801",
-            ":": "\u1804",
-            ",": "\u1802",
-            ".": "\u1803",
-            "-": "\u180A",
-            "<": "\u3008",
-            ">": "\u3009",
-            "{": "\u300A",
-            "}": "\u300B",
-            "[": "\u3014",
-            "]": "\u3015",
-            "!": "\uFF01",
-            "?": "\uFF1F",
-            "`": "&#8203;",
+"a":"ᠠ",
+"s":"ᠰ",
+"d":"ᠳ",
+"f":"ᠹ",
+"g":"ᠭ",
+"h":"ᠬ",
+"H":"ᠾ",
+"l":"ᠯ",
+"L":"ᡀ",
+
+"z":"ᠽ",
+"Z":"ᡁ",
+"x":"ᠱ",
+"c":"ᠴ",
+"C":"ᠼ",
+"v":"ᠤ",
+"b":"ᠪ",
+"n":"ᠨ",
+"N":"ᠩ",
+"m":"ᠮ",
+
+",":"᠂",
+".":"᠃",
+":":"᠄",
+"&":"᠊",
+"'":"\u180b", //FVS1
+'"':"\u180c", //FVS2
+"`":"\u180d", //FVS3
+"_":"\u180e", //MVS
+
+"0":"᠐",
+"1":"᠑",
+"2":"᠒",
+"3":"᠓",
+"4":"᠔",
+"5":"᠕",
+"6":"᠖",
+"7":"᠗",
+"8":"᠘",
+"9":"᠙",
+
+"-":"\u202f", //NNBSP
+"!":"︕",
+"@":"⁈",
+"#":"⁉",
+"&":"᠊",
+"{":"〈",
+"}":"〉",
+"\u005c":"᠁", //"\"
+"|":"︱",
+"<":"《",
+">":"》",
+"/":"·",
 };
 
 
@@ -131,7 +134,6 @@ var conversion2 = {
             ",": "\u1808",
             ".": "\u1809",
             "`": "​&#8203;", 
-            "q":"[invalid]",
         };
 
 var conversion3 = {
@@ -365,294 +367,262 @@ oninput="onInputTextChange(this.value)"></textarea>
 <div class="convtab">
 
 <table style="font-size: 18px;">
-
+<thead>
 <tr>
-<th>Latin</th>
-<th>Mongolian</th>
-<th>Cyr approx</th>
+<th>inp.</th>
+<th>outp.</th>
 </tr>
-
-
+</thead>
+<tbody>
 <tr>
-<td>a</td>
-<td>\u1820 ᠠ</td>
-<td>а</td>
+<td>q</td>
+<td>ᠣ</td>
 </tr>
 <tr>
-<td>e</td>
-<td>\u1821 ᠡ</td>
-<td>э</td>
-</tr>
-<tr>
-<td>i</td>
-<td>\u1822 ᠢ</td>
-<td>и</td>
+<td>Q</td>
+<td>ᡂ</td>
 </tr>
 <tr>
 <td>w</td>
-<td>\u1823 ᠣ</td>
-<td>о</td>
+<td>ᠸ</td>
 </tr>
 <tr>
-<td>v</td>
-<td>\u1824 ᠤ</td>
-<td>у</td>
-</tr>
-<tr>
-<td>o</td>
-<td>\u1825 ᠥ</td>
-<td>ө</td>
-</tr>
-<tr>
-<td>u</td>
-<td>\u1826 ᠦ</td>
-<td>ү</td>
+<td>e</td>
+<td>ᠡ</td>
 </tr>
 <tr>
 <td>E</td>
-<td>\u1827 ᠧ</td>
-<td>е</td>
-</tr>
-<tr>
-<td>n</td>
-<td>\u1828 ᠨ</td>
-<td>н</td>
-</tr>
-<tr>
-<td>ng</td>
-<td>\u1829 ᠩ</td>
-<td>нг</td>
-</tr>
-<tr>
-<td>b</td>
-<td>\u182A ᠪ</td>
-<td>б</td>
-</tr>
-<tr>
-<td>p</td>
-<td>\u182B ᠫ</td>
-<td>п</td>
-</tr>
-<tr>
-<td>h</td>
-<td>\u182C ᠬ</td>
-<td>х</td>
-</tr>
-<tr>
-<td>g</td>
-<td>\u182D ᠭ</td>
-<td>х</td>
-</tr>
-<tr>
-<td>m</td>
-<td>\u182E ᠮ</td>
-<td>м</td>
-</tr>
-<tr>
-<td>l</td>
-<td>\u182F ᠯ</td>
-<td>л</td>
-</tr>
-<tr>
-<td>s</td>
-<td>\u1830 ᠰ</td>
-<td>с</td>
-</tr>
-<tr>
-<td>x</td>
-<td>\u1831 ᠱ</td>
-<td>ш</td>
-</tr>
-<tr>
-<td>t</td>
-<td>\u1832 ᠲ</td>
-<td>т</td>
-</tr>
-<tr>
-<td>d</td>
-<td>\u1833 ᠳ</td>
-<td>д</td>
-</tr>
-<tr>
-<td>q</td>
-<td>\u1834 ᠴ</td>
-<td>ч</td>
-</tr>
-<tr>
-<td>j</td>
-<td>\u1835 ᠵ</td>
-<td>ж</td>
-</tr>
-<tr>
-<td>y</td>
-<td>\u1836 ᠶ</td>
-<td>й</td>
+<td>ᠧ</td>
 </tr>
 <tr>
 <td>r</td>
-<td>\u1837 ᠷ</td>
-<td>р</td>
-</tr>
-<tr>
-<td>W</td>
-<td>\u1838 ᠸ</td>
-<td>в</td>
-</tr>
-<tr>
-<td>f</td>
-<td>\u1839 ᠹ</td>
-<td>ф</td>
-</tr>
-<tr>
-<td>k</td>
-<td>\u183A ᠺ</td>
-<td>к</td>
-</tr>
-<tr>
-<td>K</td>
-<td>\u183B ᠻ</td>
-<td>к</td>
-</tr>
-<tr>
-<td>c</td>
-<td>\u183C ᠼ</td>
-<td>ц</td>
-</tr>
-<tr>
-<td>z</td>
-<td>\u183D ᠽ</td>
-<td>з</td>
-</tr>
-<tr>
-<td>H</td>
-<td>\u183E ᠾ</td>
-<td>х</td>
+<td>ᠷ</td>
 </tr>
 <tr>
 <td>R</td>
-<td>\u183F ᠿ</td>
-<td>ж</td>
+<td>ᠿ</td>
+</tr>
+<tr>
+<td>t</td>
+<td>ᠲ</td>
+</tr>
+<tr>
+<td>y</td>
+<td>ᠶ</td>
+</tr>
+<tr>
+<td>u</td>
+<td>ᠦ</td>
+</tr>
+<tr>
+<td>i</td>
+<td>ᠢ</td>
+</tr>
+<tr>
+<td>o</td>
+<td>ᠥ</td>
+</tr>
+<tr>
+<td>p</td>
+<td>ᠫ</td>
+</tr>
+<tr>
+<td>a</td>
+<td>ᠠ</td>
+</tr>
+<tr>
+<td>s</td>
+<td>ᠰ</td>
+</tr>
+<tr>
+<td>d</td>
+<td>ᠳ</td>
+</tr>
+<tr>
+<td>f</td>
+<td>ᠹ</td>
+</tr>
+<tr>
+<td>g</td>
+<td>ᠭ</td>
+</tr>
+<tr>
+<td>h</td>
+<td>ᠬ</td>
+</tr>
+<tr>
+<td>H</td>
+<td>ᠾ</td>
+</tr>
+<tr>
+<td>l</td>
+<td>ᠯ</td>
 </tr>
 <tr>
 <td>L</td>
-<td>\u1840 ᡀ</td>
-<td>лх</td>
+<td>ᡀ</td>
+</tr>
+<tr>
+<td>z</td>
+<td>ᠽ</td>
 </tr>
 <tr>
 <td>Z</td>
-<td>\u1841 ᡁ</td>
-<td>з</td>
+<td>ᡁ</td>
+</tr>
+<tr>
+<td>x</td>
+<td>ᠱ</td>
+</tr>
+<tr>
+<td>c</td>
+<td>ᠴ</td>
 </tr>
 <tr>
 <td>C</td>
-<td>\u1842 ᡂ</td>
-<td>ч</td>
+<td>ᠼ</td>
 </tr>
 <tr>
-<td>V</td>
-<td colspan="2">Mongolian Vowel Separator (MVS), U+180E</td>
+<td>v</td>
+<td>ᠤ</td>
+</tr>
+<tr>
+<td>b</td>
+<td>ᠪ</td>
+</tr>
+<tr>
+<td>n</td>
+<td>ᠨ</td>
 </tr>
 <tr>
 <td>N</td>
-<td colspan="2">Narrow No-Break Space (NNBSP), U+202F</td>
+<td>ᠩ</td>
 </tr>
 <tr>
-<td>0</td>
-<td>\u1810 ᠐</td>
-</tr>
-<tr>
-<td>1</td>
-<td>\u1811 ᠑</td>
-</tr>
-<tr>
-<td>2</td>
-<td>\u1812 ᠒</td>
-</tr>
-<tr>
-<td>3</td>
-<td>\u1813 ᠓</td>
-</tr>
-<tr>
-<td>4</td>
-<td>\u1814 ᠔</td>
-</tr>
-<tr>
-<td>5</td>
-<td>\u1815 ᠕</td>
-</tr>
-<tr>
-<td>6</td>
-<td>\u1816 ᠖</td>
-</tr>
-<tr>
-<td>7</td>
-<td>\u1817 ᠗</td>
-</tr>
-<tr>
-<td>8</td>
-<td>\u1818 ᠘</td>
-</tr>
-<tr>
-<td>9</td>
-<td>\u1819 ᠙</td>
-</tr>
-<tr>
-<td>..</td>
-<td>\u1801 ᠁</td>
-</tr>
-<tr>
-<td>:</td>
-<td>\u1804 ᠄</td>
+<td>m</td>
+<td>ᠮ</td>
 </tr>
 <tr>
 <td>,</td>
-<td>\u1808 ᠈</td>
+<td>᠂</td>
 </tr>
 <tr>
 <td>.</td>
-<td>\u1809 ᠉</td>
+<td>᠃</td>
 </tr>
 <tr>
-<td>-</td>
-<td>\u180A ᠊</td>
+<td>:</td>
+<td>᠄</td>
 </tr>
 <tr>
-<td>&lt;</td>
-<td>\u3008 〈</td>
+<td>&amp;</td>
+<td>᠊</td>
 </tr>
 <tr>
-<td>&gt;</td>
-<td>\u3009 〉</td>
+<td>&#39;</td>
+<td>FVS1</td>
 </tr>
 <tr>
-<td>{</td>
-<td>\u300A 《</td>
-</tr>
-<tr>
-<td>}</td>
-<td>\u300B 》</td>
-</tr>
-<tr>
-<td>[</td>
-<td>\u3014 〔</td>
-</tr>
-<tr>
-<td>]</td>
-<td>\u3015 〕</td>
-</tr>
-<tr>
-<td>!</td>
-<td>\uFF01 ！</td>
-</tr>
-<tr>
-<td>?</td>
-<td>\uFF1F ？</td>
+<td>&quot;</td>
+<td>FVS2</td>
 </tr>
 <tr>
 <td>`</td>
-<td>character breaker</td>
+<td>FVS3</td>
 </tr>
-
+<tr>
+<td>_</td>
+<td>MVS</td>
+</tr>
+<tr>
+<td>0</td>
+<td>᠐</td>
+</tr>
+<tr>
+<td>1</td>
+<td>᠑</td>
+</tr>
+<tr>
+<td>2</td>
+<td>᠒</td>
+</tr>
+<tr>
+<td>3</td>
+<td>᠓</td>
+</tr>
+<tr>
+<td>4</td>
+<td>᠔</td>
+</tr>
+<tr>
+<td>5</td>
+<td>᠕</td>
+</tr>
+<tr>
+<td>6</td>
+<td>᠖</td>
+</tr>
+<tr>
+<td>7</td>
+<td>᠗</td>
+</tr>
+<tr>
+<td>8</td>
+<td>᠘</td>
+</tr>
+<tr>
+<td>9</td>
+<td>᠙</td>
+</tr>
+<tr>
+<td>-</td>
+<td>NNBSP</td>
+</tr>
+<tr>
+<td>!</td>
+<td>︕</td>
+</tr>
+<tr>
+<td>@</td>
+<td>⁈</td>
+</tr>
+<tr>
+<td>#</td>
+<td>⁉</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>᠊</td>
+</tr>
+<tr>
+<td>{</td>
+<td>〈</td>
+</tr>
+<tr>
+<td>}</td>
+<td>〉</td>
+</tr>
+<tr>
+<td>\</td>
+<td>᠁</td>
+</tr>
+<tr>
+<td>:</td>
+<td>︱</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>《</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>》</td>
+</tr>
+<tr>
+<td>/</td>
+<td>·</td>
+</tr>
+</tbody>
 </table>
 
 </div>
