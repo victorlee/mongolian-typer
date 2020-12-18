@@ -284,6 +284,10 @@ td, th {
   text-align: center;
   padding: 1px;
 }
+.sor {
+    cursor: pointer;
+    background: #FDD;
+}
 textarea {
     font-size: 14pt;
     font-family: 'Arial';
@@ -366,14 +370,18 @@ oninput="onInputTextChange(this.value)"></textarea>
 <center>
 <div class="convtab">
 
-<table style="font-size: 18px;">
+<table style="font-size: 18px;" class="convtable">
 <thead>
 <tr>
-<th>inp.</th>
-<th>outp.</th>
+<th class="sor">inp.</th>
+<th class="sor">outp.</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
 <tr>
 <td>q</td>
 <td>ᠣ</td>
@@ -683,7 +691,7 @@ rows="9"></textarea>
 
 <center>
 <div class="convtab">
-<table style="font-size: 18px;">
+<table style="font-size: 18px;" class="convtable">
 
 <tr>
 <th>Latin</th>
@@ -906,5 +914,20 @@ rows="9"></textarea>
 
 </table>
 </center>
+
+<script>
+const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+document.querySelectorAll('.sor').forEach(th => th.addEventListener('click', (() => {
+    const table = th.closest('table');
+    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+        .forEach(tr => table.appendChild(tr) );
+})));
+</script>
+
 </body>
 </html>
