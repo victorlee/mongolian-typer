@@ -269,6 +269,7 @@ var conversion3 = {
     
 <style>
 @import url(https://victorlee.github.io/fonts/stylesheet.css);
+@import url(https://victorlee.github.io/manchu-fonts/stylesheet.css);
 
 table {
   border-collapse: collapse;
@@ -922,6 +923,8 @@ rows="9"></textarea>
 </tr>
 
 </table>
+
+<input type="checkbox" id="fontChange" onclick="fontChange()">
 </center>
 
 <script>
@@ -936,6 +939,20 @@ document.querySelectorAll('.sor').forEach(th => th.addEventListener('click', (()
         .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
         .forEach(tr => table.appendChild(tr) );
 })));
+
+function fontChange() {
+  var checkBox = document.getElementById("fontChange");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+document.getElementById("output_textarea").style.fontFamily = 'Mongolian Writing';
+    document.getElementById("output_textarea2").style.fontFamily = "XM_XS";
+document.getElementById("output_textarea2").rows = 6;
+  } else {
+document.getElementById("output_textarea").style.fontFamily = 'Mongolian Universal White';
+    document.getElementById("output_textarea2").style.fontFamily = "Mongolian Universal White";
+document.getElementById("output_textarea2").rows = 7;
+  }
+}
 </script>
 
 </body>
