@@ -338,7 +338,8 @@ textarea#output_textarea2 {
 </th>
 <th>
 <button onclick="copytext()">Copy text</button>
-<button onclick="wiktionary()">Wiktionary</button>
+<button onclick="wiktionary()">Wiktionary</button><br>
+<button onclick="bolor()">Bolor D.</button>
 <script>
         function copytext() {
           var copyText = document.getElementById("output_textarea");
@@ -349,7 +350,10 @@ textarea#output_textarea2 {
 
         function wiktionary() {
         window.open("https://en.wiktionary.org/wiki/" + document.getElementById('output_textarea').value + "#", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=300,width=600,height=600");
-}
+        }
+        function bolor() {
+        window.open("http://www.bolor-toli.com/dictionary/word?authenticity_token=selected_lang=4-1&search=" + document.getElementById('output_textarea').value, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=300,width=600,height=600");
+        }
 </script>
 </th>
 <th style="width: 260px;"><a href="http://kbdlayout.info/KBDMONST/" target="_blank">Mongolian conversion</a></th>
