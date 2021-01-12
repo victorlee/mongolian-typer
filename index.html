@@ -313,16 +313,16 @@ textarea {
 overflow-y: scroll; 
 height: 200px;
 width: 250px;
-font-family: monospace, 'Mongolian Universal White';
+font-family: noto sans mongolian, sans-serif;
 }
 textarea#output_textarea, textarea#output_textarea2 {
 font-size: 18pt;
 }
 textarea#output_textarea {
-    font-family: 'Mongolian Universal White';
+    font-family: 'Mongolian White';
 }
 textarea#output_textarea2 {
-    font-family: 'Mongolian Universal White';
+    font-family: 'XM_ZhengHei';
 }
 </style>
 
@@ -373,7 +373,7 @@ rows="9"
 oninput="onInputTextChange(this.value)"></textarea>  
 </td>
 <td>
-<textarea rows="7" placeholder="Output Mongolian" id="output_textarea"></textarea>    
+<textarea rows="8" placeholder="Output Mongolian" id="output_textarea"></textarea>    
 </td>
 <td>
 
@@ -966,8 +966,8 @@ document.getElementById("output_textarea").style.fontFamily = 'Mongolian Writing
     document.getElementById("output_textarea2").style.fontFamily = "XM_XS";
 document.getElementById("output_textarea2").rows = 6;
   } else {
-document.getElementById("output_textarea").style.fontFamily = 'Mongolian Universal White';
-    document.getElementById("output_textarea2").style.fontFamily = "Mongolian Universal White";
+document.getElementById("output_textarea").style.fontFamily = 'Mongolian White';
+    document.getElementById("output_textarea2").style.fontFamily = "XM_ZhengHei";
 document.getElementById("output_textarea2").rows = 7;
   }
 }
